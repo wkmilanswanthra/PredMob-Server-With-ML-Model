@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('./config/database');
 const morgan = require("morgan");
-const port = 3000 || 8080;
+const port = 4000 || 8080;
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/api", require("./routes/Model"));
 app.use("/api/users", require("./routes/UserRoute"));
 
 app.listen(port, () => {
