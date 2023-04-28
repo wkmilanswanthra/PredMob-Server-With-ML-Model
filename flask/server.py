@@ -203,7 +203,7 @@ def get_comparison():
     for file in files:
         df = pd.read_csv(file)
         df = df.fillna(value='NaN')
-        df = df[['name', 'position', 'date_of_birth', 'weight', 'goals', 'height', 'photo']]
+        df = df[['name', 'position', 'date_of_birth', 'weight', 'goals', 'height', 'photo', 'team', 'shirt_number']]
         df = df.to_dict(orient='records')
         players.append(df)
     return jsonify({'players': players})
